@@ -913,6 +913,8 @@ body.dark-mode .skill-bar-track {
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 40px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .expertise-card {
@@ -924,6 +926,10 @@ body.dark-mode .skill-bar-track {
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-sizing: border-box;
+  background-clip: padding-box;
+  box-shadow: 0 4px 20px var(--shadow-color);
 }
 
 .expertise-card::before {
@@ -1908,11 +1914,17 @@ body.dark-mode .skill-bar-track {
 
   .expertise-cards {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 18px;
+    width: 100%;
+    margin-top: 20px;
+    box-sizing: border-box;
   }
 
   .expertise-card {
     padding: 24px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 16px;
   }
 
   .digital-marketing-grid {
@@ -2175,13 +2187,19 @@ body.dark-mode .skill-bar-track {
   text-align: center;
 }
 
+.container.slide-section {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 @media (min-width: 769px) {
   .slide-section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     box-sizing: border-box;
-    padding: 40px 0 20px 0;
+    padding-top: 40px;
+    padding-bottom: 20px;
   }
 
   .footer {
@@ -2190,8 +2208,14 @@ body.dark-mode .skill-bar-track {
 }
 
 @media (max-width: 768px) {
+  .container.slide-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .slide-section {
-    padding: 40px 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   .footer {
