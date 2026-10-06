@@ -30,7 +30,7 @@
     /* Unique premium styling for courses */
     .pillar-section {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 25px;
       margin-bottom: 50px;
     }
@@ -128,8 +128,22 @@
     /* Bento Card Course Layout */
     .courses-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .pillar-section,
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+      .chart-container {
+        padding: 24px 16px;
+      }
+      .course-card-header,
+      .course-card-body {
+        padding: 18px 16px;
+      }
     }
     
     .course-card {

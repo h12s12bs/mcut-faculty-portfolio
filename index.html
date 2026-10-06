@@ -207,9 +207,9 @@
     }
     .project-gallery-row {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
       gap: 20px;
-      padding: 10px 5px;
+      padding: 10px 0;
     }
     .project-gallery-item {
       background: var(--white);
@@ -235,6 +235,19 @@
       text-align: center;
       background: var(--off-white);
       font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .project-list-item {
+        padding: 20px 14px;
+      }
+      .project-gallery-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .project-gallery-item img {
+        height: auto;
+        max-height: 220px;
+      }
     }
   </style>
 </head>
@@ -279,14 +292,14 @@
     <div class="hero-content" style="max-width: 1050px; margin: 0 auto; text-align: center;">
       <!-- Ming Chi University of Technology BM Dept Logo Container -->
       <div class="hero-logo-container" style="margin-bottom: 25px; display: flex; justify-content: center; align-items: center;">
-        <div style="background: #ffffff; width: 380px; height: 180px; border-radius: 16px; box-shadow: 0 15px 45px rgba(0,0,0,0.45); display: inline-flex; align-items: center; justify-content: center; border: 3px solid rgba(196, 139, 88, 0.55); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          <img src="assets/images/logo-mcutbm.png" alt="明志科技大學經管系 Logo" style="height: 160px; max-width: 90%; object-fit: contain; display: block;">
+        <div style="background: linear-gradient(135deg, rgba(10, 22, 40, 0.98), rgba(20, 36, 62, 0.95)); width: min(440px, 92vw); padding: 18px 24px; border-radius: 16px; box-shadow: 0 15px 45px rgba(0,0,0,0.5); display: inline-flex; align-items: center; justify-content: center; border: 2px solid rgba(196, 139, 88, 0.7); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+          <img src="assets/images/logo-mcutbm.png" alt="明志科技大學經管系 Logo" style="width: 100%; max-height: 52px; object-fit: contain; display: block;">
         </div>
       </div>
 
       <div class="hero-badge" style="background: rgba(196, 139, 88, 0.15); border: 1px solid rgba(196, 139, 88, 0.3); color: var(--gold-light); letter-spacing: 1px; font-weight: 600; padding: 6px 16px; display: inline-flex; align-items: center; gap: 8px;">
         <span class="dot" style="background: var(--teal); width: 8px; height: 8px; border-radius: 50%;"></span>
-        明志科技大學 經營管理系 ｜ 助理教授
+        應徵 明志科技大學 經營管理系 ｜ 助理教授
       </div>
 
       <h1 class="hero-title" style="font-size: clamp(2rem, 5vw, 3.2rem); margin-top: 15px; margin-bottom: 8px; line-height: 1.2; font-weight: 800;">
@@ -403,6 +416,14 @@
 
       <div class="expertise-cards" style="margin-bottom: 20px;">
         <div class="expertise-card animate-on-scroll stagger-1">
+          <div class="expertise-card-icon" style="background: rgba(196,139,88,0.15);">🎓</div>
+          <h4 class="expertise-card-title">助理教授</h4>
+          <p class="expertise-card-desc">
+            <strong>萬能科技大學 企業管理系 (2026.08 - 至今)</strong><br>
+            負責管理學、決策分析、AI跨領域應用等專業課程教學，指導學生專題實作與校外實習，並積極推動系所數位轉型與產學合作專案。
+          </p>
+        </div>
+        <div class="expertise-card animate-on-scroll stagger-2">
           <div class="expertise-card-icon" style="background: rgba(92,113,94,0.15);">🏥</div>
           <h4 class="expertise-card-title">研發工程師 兼 董事長特助</h4>
           <p class="expertise-card-desc">
@@ -532,6 +553,28 @@
               <div class="project-gallery-item">
                 <a href="assets/images/project-ir-1.png" target="_blank"><img src="assets/images/project-ir-1.png" alt="收入結構分析"></a>
                 <div class="project-gallery-caption">圖 4-3：收入結構分析</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 (VNU EMBA Portal) -->
+        <div class="project-list-item stagger-5">
+          <div class="project-info-side">
+            <h4 class="project-item-title">5. 萬能科技大學 企業管理研究所 (EMBA) 官方網站開發與招生管理系統</h4>
+            <p class="project-item-text">
+              為萬能科技大學企業管理研究所碩士在職專班（EMBA）量身打造全方位官方網站與智慧後台。架構涵蓋 Python Flask、TailwindCSS、中英雙語即時切換、獨立多頁面架構、權限管理中心（RBAC 精準隔離控管），並整合生源 CRM 數據分析、名單自動匯入匯出與 Cloudflare 專屬安全穿透技術（正式網址：<a href="https://vnuemba.com.tw" target="_blank" rel="noopener" style="color: var(--teal); font-weight: 700; text-decoration: underline;">vnuemba.com.tw</a>）。
+            </p>
+          </div>
+          <div class="project-gallery-side">
+            <div class="project-gallery-row">
+              <div class="project-gallery-item">
+                <a href="assets/images/project-emba-logo.png" target="_blank"><img src="assets/images/project-emba-logo.png" alt="萬能科技大學 EMBA 官方品牌視覺標誌"></a>
+                <div class="project-gallery-caption">圖 5-1：EMBA 官方品牌視覺延伸與標誌</div>
+              </div>
+              <div class="project-gallery-item">
+                <a href="assets/images/project-emba-hero.jpg" target="_blank"><img src="assets/images/project-emba-hero.jpg" alt="EMBA 入口網首頁主視覺"></a>
+                <div class="project-gallery-caption">圖 5-2：EMBA 入口網官方首頁視覺設計</div>
               </div>
             </div>
           </div>

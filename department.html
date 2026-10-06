@@ -29,7 +29,7 @@
   <style>
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 30px;
       margin-top: 40px;
     }
@@ -79,9 +79,20 @@
     /* Enterprise Special Classes Guide Styles */
     .class-guide-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 24px;
       margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .feature-grid,
+      .class-guide-grid {
+        grid-template-columns: 1fr;
+      }
+      .feature-card,
+      .class-fit-card {
+        padding: 22px 18px;
+      }
     }
 
     .class-fit-card {

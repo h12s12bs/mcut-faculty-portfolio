@@ -37,20 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Smooth Scroll for Nav Links ----
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      e.preventDefault();
       const targetId = this.getAttribute('href');
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        const offsetTop = targetEl.offsetTop - 80;
-        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+      if (targetId && targetId !== '#') {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const offsetTop = targetEl.offsetTop - 80;
+          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
       }
 
       // Close mobile nav
       const navLinksEl = document.querySelector('.nav-links');
       const hamburger = document.querySelector('.hamburger');
-      if (navLinksEl.classList.contains('nav-open')) {
+      if (navLinksEl && navLinksEl.classList.contains('nav-open')) {
         navLinksEl.classList.remove('nav-open');
-        hamburger.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+        document.body.classList.remove('menu-open');
       }
     });
   });
@@ -59,10 +62,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
   const navLinksEl = document.querySelector('.nav-links');
 
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinksEl.classList.toggle('nav-open');
+  if (hamburger && navLinksEl) {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = hamburger.classList.toggle('active');
+      navLinksEl.classList.toggle('nav-open', isOpen);
+      document.body.classList.toggle('menu-open', isOpen);
+    });
+
+    // Close mobile nav on clicking any nav link
+    navLinksEl.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinksEl.classList.remove('nav-open');
+        document.body.classList.remove('menu-open');
+      });
+    });
+
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navLinksEl.classList.contains('nav-open') && !navLinksEl.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navLinksEl.classList.remove('nav-open');
+        document.body.classList.remove('menu-open');
+      }
     });
   }
 

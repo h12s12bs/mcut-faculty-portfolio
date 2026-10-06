@@ -1702,61 +1702,113 @@ body.dark-mode .skill-bar-track {
     grid-template-columns: 1fr 1fr;
   }
 
+  /* Disable backdrop-filter on mobile navbar to fix stacking context bug */
+  .navbar,
+  .navbar.nav-scrolled {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .navbar.nav-scrolled {
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  body.dark-mode .navbar.nav-scrolled {
+    background: #0f172a !important;
+  }
+
+  body.menu-open {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
+
   /* Hamburger navigation triggered at 1024px to prevent inline text wrapping */
   .nav-links {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #ffffff; /* Solid white background in light mode */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    backdrop-filter: blur(20px);
-    z-index: 1000;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: #ffffff !important; /* Always solid white in light mode */
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 16px !important;
+    z-index: 99998 !important;
+    padding: 70px 24px 30px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   body.dark-mode .nav-links {
-    background: rgba(10, 22, 40, 0.98); /* Solid dark background in dark mode */
+    background: #0a1628 !important;
   }
 
   .nav-links.nav-open {
-    display: flex;
+    display: flex !important;
   }
 
   .nav-links a {
-    font-size: 1.2rem;
-    padding: 14px 30px;
-    color: var(--text-secondary);
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    padding: 13px 24px !important;
+    color: var(--navy) !important;
+    border-radius: 12px;
+    width: 85%;
+    max-width: 280px;
+    text-align: center;
+    background: rgba(15, 23, 42, 0.04);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    text-decoration: none;
   }
 
   body.dark-mode .nav-links a {
-    color: rgba(255, 255, 255, 0.8);
+    color: #f8fafc !important;
+    background: rgba(255, 255, 255, 0.06);
   }
 
   .nav-links a:hover,
   .nav-links a.active {
-    color: var(--navy);
-    background: rgba(45, 34, 25, 0.08);
+    color: var(--white) !important;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important;
   }
 
   body.dark-mode .nav-links a:hover,
   body.dark-mode .nav-links a.active {
-    color: var(--white);
-    background: rgba(255, 255, 255, 0.08);
+    color: var(--white) !important;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important;
   }
 
   .hamburger {
-    display: flex;
+    display: flex !important;
+    z-index: 99999 !important;
+    position: relative !important;
   }
 
+  .hamburger span {
+    background: var(--navy) !important;
+  }
+
+  /* When navbar is at top with dark hero, hamburger is white */
+  .navbar:not(.nav-scrolled) .hamburger span {
+    background: var(--white) !important;
+  }
+
+  /* When menu is open, hamburger X should always contrast with menu background */
   .hamburger.active span {
     background: var(--navy) !important;
   }
 
+  body.dark-mode .hamburger span,
   body.dark-mode .hamburger.active span {
     background: var(--white) !important;
   }
@@ -1764,11 +1816,37 @@ body.dark-mode .skill-bar-track {
 
 @media (max-width: 768px) {
   :root {
-    --section-padding: 70px 0;
+    --section-padding: 55px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .nav-inner {
+    padding: 0 16px;
   }
 
   .nav-logo-text {
     display: none;
+  }
+
+  .hero {
+    padding: 100px 0 50px !important;
+    min-height: auto !important;
+  }
+
+  .hero-content {
+    padding: 0 8px;
+  }
+
+  .hero-badge {
+    font-size: 0.85rem !important;
+    padding: 6px 12px !important;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+    max-width: 96%;
   }
 
   .cooperation-item {
@@ -1778,7 +1856,7 @@ body.dark-mode .skill-bar-track {
   }
 
   .hero-stats {
-    gap: 30px;
+    gap: 24px;
     flex-wrap: wrap;
   }
 
@@ -1788,6 +1866,11 @@ body.dark-mode .skill-bar-track {
 
   .expertise-cards {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .expertise-card {
+    padding: 24px 20px;
   }
 
   .digital-marketing-grid {
@@ -1804,6 +1887,7 @@ body.dark-mode .skill-bar-track {
 
   .footer-top {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .footer-bottom {
@@ -1813,15 +1897,15 @@ body.dark-mode .skill-bar-track {
   }
 
   .timeline {
-    padding-left: 40px;
+    padding-left: 36px;
   }
 
   .timeline::before {
-    left: 14px;
+    left: 12px;
   }
 
   .timeline-item::before {
-    left: -34px;
+    left: -32px;
     width: 12px;
     height: 12px;
   }
@@ -1829,32 +1913,38 @@ body.dark-mode .skill-bar-track {
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.85rem !important;
+  }
+
+  .hero-presentation-subtitle {
+    font-size: 0.95rem !important;
   }
 
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 12px;
   }
 
-  .btn {
+  .hero-buttons .btn {
     width: 100%;
     justify-content: center;
-    max-width: 280px;
+    max-width: 300px;
+    padding: 12px 20px;
   }
 
   .hero-stats {
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
   }
 
   .stats-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 12px;
   }
 
   .stat-number {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .recruitment-tabs {
