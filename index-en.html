@@ -30,8 +30,8 @@
     /* Premium Timeline and Project styles */
     .edu-timeline {
       position: relative;
-      margin: 30px 0;
-      padding-left: 30px;
+      margin: 30px 0 30px 24px;
+      padding-left: 28px;
       border-left: 2px solid var(--gold-light);
     }
     .edu-timeline-item {
@@ -41,7 +41,7 @@
     .edu-timeline-item::before {
       content: '';
       position: absolute;
-      left: -37px;
+      left: -35px;
       top: 6px;
       width: 12px;
       height: 12px;
@@ -142,30 +142,12 @@
       margin-top: 10px;
     }
     .project-gallery-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
       gap: 20px;
-      overflow-x: auto;
-      padding: 10px 5px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
-    .project-gallery-row::-webkit-scrollbar {
-      height: 8px;
-    }
-    .project-gallery-row::-webkit-scrollbar-track {
-      background: var(--gray-100);
-      border-radius: 4px;
-    }
-    .project-gallery-row::-webkit-scrollbar-thumb {
-      background: var(--gold-light);
-      border-radius: 4px;
-    }
-    .project-gallery-row::-webkit-scrollbar-thumb:hover {
-      background: var(--gold);
+      padding: 10px 0;
     }
     .project-gallery-item {
-      flex: 0 0 460px; /* Large width so you see details */
-      scroll-snap-align: start;
       background: var(--white);
       border: 1px solid var(--border-color);
       border-radius: 10px;
@@ -173,11 +155,7 @@
       box-shadow: 0 6px 15px rgba(45, 34, 25, 0.04);
       display: flex;
       flex-direction: column;
-    }
-    @media (max-width: 768px) {
-      .project-gallery-item {
-        flex: 0 0 85vw; /* Adaptive on mobile */
-      }
+      width: 100%;
     }
     .project-gallery-item img {
       width: 100%;
@@ -193,6 +171,26 @@
       text-align: center;
       background: var(--off-white);
       font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .edu-timeline {
+        margin: 25px 0 25px 20px;
+        padding-left: 24px;
+      }
+      .edu-timeline-item::before {
+        left: -31px;
+      }
+      .project-list-item {
+        padding: 20px 14px;
+      }
+      .project-gallery-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .project-gallery-item img {
+        height: auto;
+        max-height: 220px;
+      }
     }
   </style>
 
@@ -370,7 +368,7 @@
           <h4 class="expertise-card-title">Assistant Professor</h4>
           <p class="expertise-card-desc">
             <strong>Vanung University, Department of Business Administration (2026.08 - Present)</strong><br>
-            Teaching management science, decision analysis, and interdisciplinary AI applications. Mentoring students on capstone projects and internships, while driving digital transformation and industry-academia collaborations.
+            Instructs courses including Enterprise Resource Planning (ERP), Business Software Applications, Marketing Planning Practice, and Creative Thinking &amp; Practice—integrating AI into teaching with Antigravity. Serves as faculty mentor for off-campus internships and successfully connected the department with SINBON Electronics for the New Southbound International Program (under contracting).
           </p>
         </div>
         <div class="expertise-card animate-on-scroll stagger-2">

@@ -1318,6 +1318,38 @@ body.dark-mode .skill-bar-track {
   font-weight: 700;
 }
 
+/* Education Timeline */
+.edu-timeline {
+  position: relative;
+  margin: 30px 0 30px 24px;
+  padding-left: 28px;
+  border-left: 2px solid var(--gold-light);
+}
+
+.edu-timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.edu-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -35px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 3px var(--gold-light);
+  transition: all var(--transition-fast);
+}
+
+.edu-timeline-item:hover::before {
+  background: var(--teal);
+  box-shadow: 0 0 0 3px var(--teal-light);
+}
+
 /* ==========================================
    DIGITAL MARKETING SECTION
    ========================================== */
@@ -1820,7 +1852,17 @@ body.dark-mode .skill-bar-track {
   }
 
   .container {
-    padding: 0 16px;
+    padding: 0 20px;
+  }
+
+  /* Disable horizontal scroll animations on mobile to prevent clipping */
+  .animate-on-scroll.animate-left,
+  .animate-on-scroll.animate-right {
+    transform: translateY(20px) !important;
+  }
+  .animate-on-scroll.animate-left.animate-in,
+  .animate-on-scroll.animate-right.animate-in {
+    transform: translateY(0) !important;
   }
 
   .nav-inner {
@@ -1897,17 +1939,27 @@ body.dark-mode .skill-bar-track {
   }
 
   .timeline {
-    padding-left: 36px;
+    padding-left: 44px;
   }
 
   .timeline::before {
-    left: 12px;
+    left: 16px;
+    width: 3px;
   }
 
   .timeline-item::before {
-    left: -32px;
-    width: 12px;
-    height: 12px;
+    left: -35px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .edu-timeline {
+    margin: 25px 0 25px 20px;
+    padding-left: 24px;
+  }
+
+  .edu-timeline-item::before {
+    left: -31px;
   }
 }
 
