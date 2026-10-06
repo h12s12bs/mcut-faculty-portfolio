@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const nameVal = (document.getElementById('name') || {}).value || '';
       const emailVal = (document.getElementById('email') || {}).value || '';
-      const subjectVal = (document.getElementById('subject') || {}).value || '萬能企管網站諮詢留言';
+      const subjectVal = (document.getElementById('subject') || {}).value || '明志經管網站諮詢留言';
       const messageVal = (document.getElementById('message') || {}).value || '';
 
       const recipient = 'kevin87332000@gmail.com';
@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'Accept': 'application/json'
           },
           body: JSON.stringify({
-            _subject: `【萬能企管諮詢】${subjectVal}`,
+            _subject: `【明志經管諮詢】${subjectVal}`,
             _template: 'table',
             姓名: nameVal,
             電子郵件: emailVal,
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (err) {
         console.warn('FormSubmit AJAX failed, activating mailto fallback:', err);
-        const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent('【萬能企管諮詢】' + subjectVal)}&body=${encodeURIComponent(`姓名: ${nameVal}\nEmail: ${emailVal}\n主旨: ${subjectVal}\n\n留言內容:\n${messageVal}`)}`;
+        const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent('【明志經管諮詢】' + subjectVal)}&body=${encodeURIComponent(`姓名: ${nameVal}\nEmail: ${emailVal}\n主旨: ${subjectVal}\n\n留言內容:\n${messageVal}`)}`;
         window.location.href = mailtoUrl;
         alert(`已為您開啟郵件系統，感謝您的聯繫！`);
         contactForm.reset();

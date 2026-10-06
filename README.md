@@ -1,8 +1,8 @@
-# 邱俊維 助理教授 | 萬能科技大學企業管理系 — 個人網站
+# 邱俊維 助理教授 | 明志科技大學經營管理系 — 個人網站
 
 ## 📋 網站內容
 
-本網站為邱俊維助理教授（萬能科技大學企業管理系）之個人網站，包含：
+本網站為邱俊維助理教授（明志科技大學經營管理系）之個人網站，包含：
 
 - **🎓 個人專長介紹** — 跨域整合的管理教育專業背景與技能
 - **🤝 產學合作構想** — 五大產學合作計畫方案
@@ -22,7 +22,7 @@
 ## 📂 專案結構
 
 ```
-vanung-faculty-portfolio/
+mcut-faculty-portfolio/
 ├── index.html          # 主頁面
 ├── styles.css          # 樣式表
 ├── script.js           # 互動腳本
@@ -34,7 +34,7 @@ vanung-faculty-portfolio/
 
 ## 🌐 線上預覽
 
-部署於 GitHub Pages：https://h12s12bs.github.io/vanung-faculty-portfolio/
+部署於 GitHub Pages：https://h12s12bs.github.io/mcut-faculty-portfolio/
 
 ---
 
